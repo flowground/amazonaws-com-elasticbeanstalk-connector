@@ -1,0 +1,80 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "See the example below to learn how to create a request body.",
+            "example": {
+                "AttributeNames": [
+                    "All"
+                ],
+                "EnvironmentName": "my-env"
+            },
+            "properties": {
+                "AttributeNames": {
+                    "description": "Specify the response elements to return. To retrieve all attributes, set to <code>All</code>. If no attribute names are specified, returns the name of the environment.",
+                    "items": {
+                        "enum": [
+                            "Status",
+                            "Color",
+                            "Causes",
+                            "ApplicationMetrics",
+                            "InstancesHealth",
+                            "All",
+                            "HealthStatus",
+                            "RefreshedAt"
+                        ],
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "EnvironmentId": {
+                    "description": "<p>Specify the environment by ID.</p> <p>You must specify either this or an EnvironmentName, or both.</p>",
+                    "type": "string"
+                },
+                "EnvironmentName": {
+                    "description": "<p>Specify the environment by name.</p> <p>You must specify either this or an EnvironmentName, or both.</p>",
+                    "maxLength": 40,
+                    "minLength": 4,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

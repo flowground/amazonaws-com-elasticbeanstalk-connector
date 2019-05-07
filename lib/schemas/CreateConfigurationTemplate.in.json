@@ -1,0 +1,153 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to create a configuration template.",
+            "example": {
+                "ApplicationName": "my-app",
+                "EnvironmentId": "e-rpqsewtp2j",
+                "TemplateName": "my-app-v1"
+            },
+            "properties": {
+                "ApplicationName": {
+                    "description": "The name of the application to associate with this configuration template. If no application is found with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. ",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "Describes this configuration.",
+                    "maxLength": 200,
+                    "type": "string"
+                },
+                "EnvironmentId": {
+                    "description": "The ID of the environment used with this configuration template.",
+                    "type": "string"
+                },
+                "OptionSettings": {
+                    "description": "If specified, AWS Elastic Beanstalk sets the specified configuration option to the requested value. The new value overrides the value obtained from the solution stack or the source configuration template.",
+                    "items": {
+                        "description": " A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html\">Option Values</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>. ",
+                        "properties": {
+                            "Namespace": {
+                                "description": "A unique namespace identifying the option's associated AWS resource.",
+                                "type": "string"
+                            },
+                            "OptionName": {
+                                "description": "The name of the configuration option.",
+                                "type": "string"
+                            },
+                            "ResourceName": {
+                                "description": "A unique resource name for a time-based scaling configuration option.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The current value for the configuration option.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "PlatformArn": {
+                    "description": "The ARN of the custom platform.",
+                    "type": "string"
+                },
+                "SolutionStackName": {
+                    "description": "<p>The name of the solution stack used by this configuration. The solution stack specifies the operating system, architecture, and application server for a configuration template. It determines the set of configuration options as well as the possible and default values.</p> <p> Use <a>ListAvailableSolutionStacks</a> to obtain a list of available solution stacks. </p> <p> A solution stack name or a source configuration parameter must be specified, otherwise AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p> <p>If a solution stack name is not specified and the source configuration parameter is specified, AWS Elastic Beanstalk uses the same solution stack as the source configuration template.</p>",
+                    "type": "string"
+                },
+                "SourceConfiguration": {
+                    "description": "<p>If specified, AWS Elastic Beanstalk uses the configuration values from the specified configuration template to create a new configuration.</p> <p> Values specified in the <code>OptionSettings</code> parameter of this call overrides any values obtained from the <code>SourceConfiguration</code>. </p> <p> If no configuration template is found, returns an <code>InvalidParameterValue</code> error. </p> <p> Constraint: If both the solution stack name parameter and the source configuration parameters are specified, the solution stack of the source configuration template must match the specified solution stack name or else AWS Elastic Beanstalk returns an <code>InvalidParameterCombination</code> error. </p>",
+                    "properties": {
+                        "ApplicationName": {
+                            "description": "The name of the application associated with the configuration.",
+                            "maxLength": 100,
+                            "minLength": 1,
+                            "type": "string"
+                        },
+                        "TemplateName": {
+                            "description": "The name of the configuration template.",
+                            "maxLength": 100,
+                            "minLength": 1,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Tags": {
+                    "description": "Specifies the tags applied to the configuration template.",
+                    "items": {
+                        "description": "Describes a tag applied to a resource in an environment.",
+                        "properties": {
+                            "Key": {
+                                "description": "The key of the tag.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of the tag.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TemplateName": {
+                    "description": "<p>The name of the configuration template.</p> <p>Constraint: This name must be unique per application.</p> <p>Default: If a configuration template already exists with this name, AWS Elastic Beanstalk returns an <code>InvalidParameterValue</code> error. </p>",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ApplicationName",
+                "TemplateName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

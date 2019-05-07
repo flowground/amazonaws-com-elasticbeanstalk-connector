@@ -1,0 +1,118 @@
+{
+    "type": "object",
+    "properties": {
+        "MaxRecords": {
+            "required": false,
+            "type": "string"
+        },
+        "NextToken": {
+            "required": false,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to retrieve a list of events for an environment.",
+            "example": {
+                "EnvironmentName": "my-env"
+            },
+            "properties": {
+                "ApplicationName": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those associated with this application.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "EndTime": {
+                    "description": " If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur up to, but not including, the <code>EndTime</code>. ",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "EnvironmentId": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.",
+                    "type": "string"
+                },
+                "EnvironmentName": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this environment.",
+                    "maxLength": 40,
+                    "minLength": 4,
+                    "type": "string"
+                },
+                "MaxRecords": {
+                    "description": "Specifies the maximum number of events that can be returned, beginning with the most recent event.",
+                    "maximum": 1000,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "Pagination token. If specified, the events return the next batch of results.",
+                    "type": "string"
+                },
+                "PlatformArn": {
+                    "description": "The ARN of the version of the custom platform.",
+                    "type": "string"
+                },
+                "RequestId": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the described events to include only those associated with this request ID.",
+                    "type": "string"
+                },
+                "Severity": {
+                    "description": "If specified, limits the events returned from this call to include only those with the specified severity or higher.",
+                    "enum": [
+                        "TRACE",
+                        "DEBUG",
+                        "INFO",
+                        "WARN",
+                        "ERROR",
+                        "FATAL"
+                    ],
+                    "type": "string"
+                },
+                "StartTime": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that occur on or after this time.",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "TemplateName": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those that are associated with this environment configuration.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "VersionLabel": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to those associated with this application version.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,132 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to create a new platform version.",
+            "properties": {
+                "EnvironmentName": {
+                    "description": "The name of the builder environment.",
+                    "maxLength": 40,
+                    "minLength": 4,
+                    "type": "string"
+                },
+                "OptionSettings": {
+                    "description": "The configuration option settings to apply to the builder environment.",
+                    "items": {
+                        "description": " A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html\">Option Values</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>. ",
+                        "properties": {
+                            "Namespace": {
+                                "description": "A unique namespace identifying the option's associated AWS resource.",
+                                "type": "string"
+                            },
+                            "OptionName": {
+                                "description": "The name of the configuration option.",
+                                "type": "string"
+                            },
+                            "ResourceName": {
+                                "description": "A unique resource name for a time-based scaling configuration option.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The current value for the configuration option.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "PlatformDefinitionBundle": {
+                    "description": "The location of the platform definition archive in Amazon S3.",
+                    "properties": {
+                        "S3Bucket": {
+                            "description": "The Amazon S3 bucket where the data is located.",
+                            "maxLength": 255,
+                            "type": "string"
+                        },
+                        "S3Key": {
+                            "description": "The Amazon S3 key where the data is located.",
+                            "maxLength": 1024,
+                            "type": "string"
+                        }
+                    },
+                    "type": "object"
+                },
+                "PlatformName": {
+                    "description": "The name of your custom platform.",
+                    "type": "string"
+                },
+                "PlatformVersion": {
+                    "description": "The number, such as 1.0.2, for the new platform version.",
+                    "type": "string"
+                },
+                "Tags": {
+                    "description": "<p>Specifies the tags applied to the new platform version.</p> <p>Elastic Beanstalk applies these tags only to the platform version. Environments that you create using the platform version don't inherit the tags.</p>",
+                    "items": {
+                        "description": "Describes a tag applied to a resource in an environment.",
+                        "properties": {
+                            "Key": {
+                                "description": "The key of the tag.",
+                                "maxLength": 128,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The value of the tag.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                }
+            },
+            "required": [
+                "PlatformName",
+                "PlatformVersion",
+                "PlatformDefinitionBundle"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

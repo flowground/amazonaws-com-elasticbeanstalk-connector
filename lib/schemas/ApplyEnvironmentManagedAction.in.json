@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to execute a scheduled managed action immediately.",
+            "properties": {
+                "ActionId": {
+                    "description": "The action ID of the scheduled managed action to execute.",
+                    "type": "string"
+                },
+                "EnvironmentId": {
+                    "description": "The environment ID of the target environment.",
+                    "type": "string"
+                },
+                "EnvironmentName": {
+                    "description": "The name of the target environment.",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ActionId"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

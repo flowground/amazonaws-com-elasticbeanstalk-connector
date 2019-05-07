@@ -1,0 +1,65 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to list an environment's upcoming and in-progress managed actions.",
+            "properties": {
+                "EnvironmentId": {
+                    "description": "The environment ID of the target environment.",
+                    "type": "string"
+                },
+                "EnvironmentName": {
+                    "description": "The name of the target environment.",
+                    "type": "string"
+                },
+                "Status": {
+                    "description": "To show only actions with a particular status, specify a status.",
+                    "enum": [
+                        "Scheduled",
+                        "Pending",
+                        "Running",
+                        "Unknown"
+                    ],
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

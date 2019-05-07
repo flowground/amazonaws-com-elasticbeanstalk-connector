@@ -1,0 +1,59 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Results message indicating whether a CNAME is available.",
+            "example": {
+                "CNAMEPrefix": "my-cname"
+            },
+            "properties": {
+                "CNAMEPrefix": {
+                    "description": "The prefix used when this CNAME is reserved.",
+                    "maxLength": 63,
+                    "minLength": 4,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "CNAMEPrefix"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

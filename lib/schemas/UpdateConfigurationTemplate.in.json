@@ -1,0 +1,130 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The result message containing the options for the specified solution stack.",
+            "example": {
+                "ApplicationName": "my-app",
+                "OptionsToRemove": [
+                    {
+                        "Namespace": "aws:elasticbeanstalk:healthreporting:system",
+                        "OptionName": "ConfigDocument"
+                    }
+                ],
+                "TemplateName": "my-template"
+            },
+            "properties": {
+                "ApplicationName": {
+                    "description": "<p>The name of the application associated with the configuration template to update.</p> <p> If no application is found with this name, <code>UpdateConfigurationTemplate</code> returns an <code>InvalidParameterValue</code> error. </p>",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "Description": {
+                    "description": "A new description for the configuration.",
+                    "maxLength": 200,
+                    "type": "string"
+                },
+                "OptionSettings": {
+                    "description": "A list of configuration option settings to update with the new specified option value.",
+                    "items": {
+                        "description": " A specification identifying an individual configuration option along with its current value. For a list of possible option values, go to <a href=\"https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options.html\">Option Values</a> in the <i>AWS Elastic Beanstalk Developer Guide</i>. ",
+                        "properties": {
+                            "Namespace": {
+                                "description": "A unique namespace identifying the option's associated AWS resource.",
+                                "type": "string"
+                            },
+                            "OptionName": {
+                                "description": "The name of the configuration option.",
+                                "type": "string"
+                            },
+                            "ResourceName": {
+                                "description": "A unique resource name for a time-based scaling configuration option.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            },
+                            "Value": {
+                                "description": "The current value for the configuration option.",
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "OptionsToRemove": {
+                    "description": "<p>A list of configuration options to remove from the configuration set.</p> <p> Constraint: You can remove only <code>UserDefined</code> configuration options. </p>",
+                    "items": {
+                        "description": "A specification identifying an individual configuration option.",
+                        "properties": {
+                            "Namespace": {
+                                "description": "A unique namespace identifying the option's associated AWS resource.",
+                                "type": "string"
+                            },
+                            "OptionName": {
+                                "description": "The name of the configuration option.",
+                                "type": "string"
+                            },
+                            "ResourceName": {
+                                "description": "A unique resource name for a time-based scaling configuration option.",
+                                "maxLength": 256,
+                                "minLength": 1,
+                                "type": "string"
+                            }
+                        },
+                        "type": "object"
+                    },
+                    "type": "array"
+                },
+                "TemplateName": {
+                    "description": "<p>The name of the configuration template to update.</p> <p> If no configuration template is found with this name, <code>UpdateConfigurationTemplate</code> returns an <code>InvalidParameterValue</code> error. </p>",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "required": [
+                "ApplicationName",
+                "TemplateName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

@@ -1,0 +1,99 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "Request to describe one or more environments.",
+            "example": {
+                "EnvironmentNames": [
+                    "my-env"
+                ]
+            },
+            "properties": {
+                "ApplicationName": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "EnvironmentIds": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified IDs.",
+                    "items": {
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "EnvironmentNames": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that have the specified names.",
+                    "items": {
+                        "maxLength": 40,
+                        "minLength": 4,
+                        "type": "string"
+                    },
+                    "type": "array"
+                },
+                "IncludeDeleted": {
+                    "description": "<p>Indicates whether to include deleted environments:</p> <p> <code>true</code>: Environments that have been deleted after <code>IncludedDeletedBackTo</code> are displayed.</p> <p> <code>false</code>: Do not include deleted environments.</p>",
+                    "type": "boolean"
+                },
+                "IncludedDeletedBackTo": {
+                    "description": " If specified when <code>IncludeDeleted</code> is set to <code>true</code>, then environments deleted after this date are displayed. ",
+                    "format": "date-time",
+                    "type": "string"
+                },
+                "MaxRecords": {
+                    "description": "<p>For a paginated request. Specify a maximum number of environments to include in each response.</p> <p>If no <code>MaxRecords</code> is specified, all available environments are retrieved in a single response.</p>",
+                    "maximum": 1000,
+                    "minimum": 1,
+                    "type": "integer"
+                },
+                "NextToken": {
+                    "description": "<p>For a paginated request. Specify a token from a previous response page to retrieve the next response page. All other parameter values must be identical to the ones specified in the initial request.</p> <p>If no <code>NextToken</code> is specified, the first page is retrieved.</p>",
+                    "type": "string"
+                },
+                "VersionLabel": {
+                    "description": "If specified, AWS Elastic Beanstalk restricts the returned descriptions to include only those that are associated with this application version.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                }
+            },
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

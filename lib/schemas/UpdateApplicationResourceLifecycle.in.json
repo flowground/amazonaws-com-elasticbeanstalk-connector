@@ -1,0 +1,114 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ApplicationName": {
+                    "description": "The name of the application.",
+                    "maxLength": 100,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "ResourceLifecycleConfig": {
+                    "description": "The lifecycle configuration.",
+                    "properties": {
+                        "ServiceRole": {
+                            "description": "<p>The ARN of an IAM service role that Elastic Beanstalk has permission to assume.</p> <p>The <code>ServiceRole</code> property is required the first time that you provide a <code>VersionLifecycleConfig</code> for the application in one of the supporting calls (<code>CreateApplication</code> or <code>UpdateApplicationResourceLifecycle</code>). After you provide it once, in either one of the calls, Elastic Beanstalk persists the Service Role with the application, and you don't need to specify it again in subsequent <code>UpdateApplicationResourceLifecycle</code> calls. You can, however, specify it in subsequent calls to change the Service Role to another value.</p>",
+                            "type": "string"
+                        },
+                        "VersionLifecycleConfig": {
+                            "description": "The application version lifecycle configuration.",
+                            "properties": {
+                                "MaxAgeRule": {
+                                    "description": "Specify a max age rule to restrict the length of time that application versions are retained for an application.",
+                                    "properties": {
+                                        "DeleteSourceFromS3": {
+                                            "description": "Set to <code>true</code> to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.",
+                                            "type": "boolean"
+                                        },
+                                        "Enabled": {
+                                            "description": "Specify <code>true</code> to apply the rule, or <code>false</code> to disable it.",
+                                            "type": "boolean"
+                                        },
+                                        "MaxAgeInDays": {
+                                            "description": "Specify the number of days to retain an application versions.",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "Enabled"
+                                    ],
+                                    "type": "object"
+                                },
+                                "MaxCountRule": {
+                                    "description": "Specify a max count rule to restrict the number of application versions that are retained for an application.",
+                                    "properties": {
+                                        "DeleteSourceFromS3": {
+                                            "description": "Set to <code>true</code> to delete a version's source bundle from Amazon S3 when Elastic Beanstalk deletes the application version.",
+                                            "type": "boolean"
+                                        },
+                                        "Enabled": {
+                                            "description": "Specify <code>true</code> to apply the rule, or <code>false</code> to disable it.",
+                                            "type": "boolean"
+                                        },
+                                        "MaxCount": {
+                                            "description": "Specify the maximum number of application versions to retain.",
+                                            "type": "integer"
+                                        }
+                                    },
+                                    "required": [
+                                        "Enabled"
+                                    ],
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                }
+            },
+            "required": [
+                "ApplicationName",
+                "ResourceLifecycleConfig"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
